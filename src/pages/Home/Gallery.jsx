@@ -16,7 +16,7 @@ const Gallery = () => {
         <div>
             <div className='text-center'>
                 <h1>Our Gallery :{gallerys.length}</h1>
-                <p> Disney dolls, Disney princes, frozen dolls, animation characters, donald duck, etc.</p>
+                <p></p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-10">
 
