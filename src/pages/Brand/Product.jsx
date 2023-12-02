@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { Link } from 'react-router-dom';
 
 const Product = ({ product }) => {
@@ -20,7 +20,13 @@ const Product = ({ product }) => {
                 <div className="card-actions justify-end">
                     <div className="join join-vertical space-y-4">
                         <button className="btn btn-accent join-item">View</button>
-                        <button className="btn  btn-accent join-item">Details </button>
+
+                        <div>
+                            <Link to={`/details/${_id}`}>
+                                <button className="btn  btn-accent join-item">Details </button>
+                            </Link>
+                        </div>
+
                         <Link to={`/update/${_id}`}>
                             <button className="btn  btn-accent join-item">Update </button>
                         </Link>
