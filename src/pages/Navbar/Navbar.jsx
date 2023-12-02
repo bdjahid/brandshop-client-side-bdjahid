@@ -12,8 +12,8 @@ const NavBar = () => {
     }
     const linkBar = <>
         <li><NavLink to="/">Home</NavLink></li>
-        <li><NavLink className="mx-1" to="/services">Services</NavLink></li>
-        <li><NavLink to="/course">Course</NavLink></li>
+        <li><NavLink className="mx-1" to="/product">Add Product</NavLink></li>
+        <li><NavLink to="/cart">My Cart</NavLink></li>
         <li><NavLink to="/blogs">Blogs</NavLink></li>
     </>
     return (
