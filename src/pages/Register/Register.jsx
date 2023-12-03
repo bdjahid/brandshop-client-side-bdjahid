@@ -62,6 +62,25 @@ const Register = () => {
                     displayName: name,
                     photoURL: photo
                 })
+                // user create
+                const createdAt = result.user?.metadata?.creationTime;
+                const user = { email, createdAt: createdAt };
+                fetch('http://localhost:5000/user', {
+                    method: "POST",
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(user)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data)
+                        if (data.insertedId) {
+                            console.log('user added to the database')
+                        }
+
+                    })
+                    // 
                     .then(() => {
                         navigate(from, { replace: true })
                         console.log('profile update')

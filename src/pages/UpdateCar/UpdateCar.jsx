@@ -46,7 +46,6 @@ const UpdateCar = () => {
     }
     return (
         <div className="my-10">
-            <h2>fhughdfuhggh{products.length}</h2>
             <h2 className="text-5xl font-extrabold">Update a Car</h2>
             <form onSubmit={handleUpdate} className="mt-5">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
