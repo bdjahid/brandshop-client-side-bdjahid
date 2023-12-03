@@ -11,7 +11,7 @@ import img8 from '../../../public/img/Maruti-Suzuki-Swift-feature-image.jpg';
 
 const ExtraSection = () => {
     return (
-        <div>
+        <div className="">
             <div className='text-center my-10'>
                 <div className="carousel carousel-center rounded-box">
                     <div className="carousel-item">

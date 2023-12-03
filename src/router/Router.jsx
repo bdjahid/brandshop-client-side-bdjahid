@@ -10,6 +10,7 @@ import Brand from "../pages/Brand/Brand";
 import UpdateCar from './../pages/UpdateCar/UpdateCar';
 import Details from './../pages/Details/Details';
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
+import PrivateRouter from "./PrivateRouter";
 
 const router = createBrowserRouter([
     {
@@ -23,7 +24,9 @@ const router = createBrowserRouter([
             },
             {
                 path: "/product",
-                element: <AddProduct></AddProduct>
+                element: <PrivateRouter>
+                    <AddProduct></AddProduct>
+                </PrivateRouter>
             },
             {
                 path: "/brand",
@@ -33,7 +36,9 @@ const router = createBrowserRouter([
             },
             {
                 path: "/details/:id",
-                element: <Details></Details>,
+                element: <PrivateRouter>
+                    <Details></Details>
+                </PrivateRouter>,
                 loader: ({ params }) => fetch(`http://localhost:5000/car/${params.id}`)
 
             },

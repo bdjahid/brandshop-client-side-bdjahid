@@ -92,8 +92,8 @@ const AddProduct = () => {
                         name="type"
                     >
                         <option value="">Select Type</option>
-                        <option value="phone">Car</option>
-                        <option value="phone">Phone</option>
+                        <option value="car">Car</option>
+                        <option value="bike">Bike</option>
                         <option value="computer">Computer</option>
                         <option value="headphone">Headphone</option>
                     </select>
