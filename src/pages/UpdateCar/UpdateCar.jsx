@@ -24,7 +24,7 @@ const UpdateCar = () => {
 
         // send data to the server -post
 
-        fetch(`http://localhost:5000/car/${_id}`, {
+        fetch(`http://localhost:7000/car/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

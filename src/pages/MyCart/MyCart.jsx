@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 import { useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
 
 
 
@@ -9,11 +10,41 @@ import { useLoaderData } from "react-router-dom";
 const MyCart = () => {
     const { cart } = useContext(AuthContext);
     const data = useLoaderData()
-    const { _id } = data[0]._id
-    console.log(_id)
+    // console.log(data[0]._id)
+    const id = data[0]._id
+    console.log(id)
 
-    const handleDelete = (_id) => {
-        console.log('click', _id)
+
+    const handleDelete = (id) => {
+        console.log('click', id)
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+
+                fetch(`http://localhost:7000/car/${id}`, {
+                    method: "DELETE"
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data)
+                        if (data.deleteCount > 0) {
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Your file has been deleted.",
+                                icon: "success"
+                            });
+                        }
+
+                    })
+            }
+        });
     }
 
     return (
@@ -28,7 +59,7 @@ const MyCart = () => {
                     <p>Rating : {cart.rating}</p>
                     <p>Type : {cart.type}</p>
                     <p>Description : {cart.description}</p>
-                    <button onClick={() => handleDelete(_id)}>Delete</button>
+                    <button onClick={() => handleDelete(id)}>Delete</button>
                 </div>
             </div>
 
