@@ -1,9 +1,12 @@
 
+import { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
+
+import { AuthContext } from "../../provider/AuthProvider";
 
 const Details = () => {
     const products = useLoaderData();
-    console.log(products)
+    const { addCart } = useContext(AuthContext)
 
     return (
         <div className="card lg:card-side bg-base-100 shadow-xl my-10">
@@ -16,7 +19,7 @@ const Details = () => {
                 <p>Type : {products.type}</p>
                 <p>Description : {products.description}</p>
                 <div className="card-actions justify-end">
-                    <button className="btn btn-primary">Buy Now</button>
+                    <button onClick={() => addCart(products)} className="btn btn-primary">addCart</button>
                 </div>
             </div>
         </div>

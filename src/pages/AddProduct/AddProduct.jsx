@@ -21,7 +21,7 @@ const AddProduct = () => {
 
         // send data to the server -post
 
-        fetch('http://localhost:5000/car', {
+        fetch('http://localhost:7000/car', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

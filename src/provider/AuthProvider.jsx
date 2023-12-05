@@ -2,6 +2,7 @@
 import { createContext, useEffect, useState } from "react";
 import app from "../firebase/firebase.config";
 import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
+import Swal from "sweetalert2";
 
 
 export const AuthContext = createContext(null)
@@ -44,6 +45,22 @@ const AuthProvider = ({ children }) => {
         }
     }, [])
 
+    const [cart, setCart] = useState([])
+    // console.log(cart)
+    const addCart = (data) => {
+        console.log('add to cart', data)
+
+        setCart(...cart, data)
+
+        Swal.fire({
+            title: "Success",
+            text: 'Confirm',
+            icon: 'success',
+            confirmButtonText: 'ok'
+        })
+    }
+
+
     const authInfo = {
         user,
         createUser,
@@ -51,7 +68,9 @@ const AuthProvider = ({ children }) => {
         logOut,
         loading,
         googleSignIn,
-        githubSignIn
+        githubSignIn,
+        addCart,
+        cart
     }
     return (
         <div>
